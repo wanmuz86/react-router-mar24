@@ -13,6 +13,9 @@ const ProductDetail = ({params}) => {
     // normally inside API/DB -> where lang = bm & q  likes 'harry'
     console.log(searchParams.get('lang'));
     console.log(searchParams.get('q'));
+    if (productId > 10000){
+      throw("Product not found!");
+    }
 
   },[])
 

@@ -9,12 +9,13 @@ import { RouterProvider } from 'react-router-dom';
 import Home from './pages/Home.jsx'
 import Products from './pages/Products.jsx'
 import ProductDetail from './pages/ProductDetail.jsx'
-
-
+import ErrorPage from './pages/ErrorPage.jsx';
+import ProductErrorPage from './pages/ProductErrorPage.jsx'
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
+    errorElement:<ErrorPage/>,
     children: [
       {
         path: "",
@@ -34,7 +35,8 @@ const router = createBrowserRouter([
       },
       {
         path:"products/:productId",
-        element:<ProductDetail/>
+        element:<ProductDetail/>,
+        errorElement:<ProductErrorPage/>
       }
     ]
   }
