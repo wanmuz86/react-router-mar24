@@ -1,9 +1,21 @@
-import React from 'react'
-import { useParams } from 'react-router-dom'
+import React, { useEffect } from 'react'
+import { useParams, useSearchParams } from 'react-router-dom'
 
 const ProductDetail = ({params}) => {
-
   let {productId} = useParams()
+  const [searchParams, setSearchParams] = useSearchParams();
+
+
+  
+  useEffect(()=>{
+    // We retrieve the search parameters
+    // pass to our API
+    // normally inside API/DB -> where lang = bm & q  likes 'harry'
+    console.log(searchParams.get('lang'));
+    console.log(searchParams.get('q'));
+
+  },[])
+
   return (
     <div>
         <h1>ProductDetail for product of id {productId}</h1>
