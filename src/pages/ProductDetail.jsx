@@ -5,7 +5,6 @@ const ProductDetail = ({params}) => {
   let {productId} = useParams()
   const [searchParams, setSearchParams] = useSearchParams();
 
-
   
   useEffect(()=>{
     // We retrieve the search parameters
