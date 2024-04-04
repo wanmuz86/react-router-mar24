@@ -12,6 +12,8 @@ import ProductDetail,{detailLoader} from './pages/ProductDetail.jsx'
 import ErrorPage from './pages/ErrorPage.jsx';
 import ProductErrorPage from './pages/ProductErrorPage.jsx'
 import CreateProduct,{createProductAction} from './pages/CreateProduct.jsx'
+import ProtectedRoute from './pages/ProductRoute.jsx';
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -42,10 +44,17 @@ const router = createBrowserRouter([
         loader:detailLoader
       },
       {
-        path:"create-product",
-        element:<CreateProduct/>,
-        action:createProductAction
+        element:<ProtectedRoute/>,
+        children:[
+          {
+            path:"create-product",
+            element:<CreateProduct/>,
+            action:createProductAction
+          }
+
+        ]
       }
+      
     ]
   }
 ])
