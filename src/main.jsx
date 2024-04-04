@@ -7,10 +7,11 @@ import Contact from './pages/Contact.jsx'
 import About from './pages/About.jsx'
 import { RouterProvider } from 'react-router-dom';
 import Home from './pages/Home.jsx'
-import Products from './pages/Products.jsx'
-import ProductDetail from './pages/ProductDetail.jsx'
+import Products, {dataLoader} from './pages/Products.jsx'
+import ProductDetail,{detailLoader} from './pages/ProductDetail.jsx'
 import ErrorPage from './pages/ErrorPage.jsx';
 import ProductErrorPage from './pages/ProductErrorPage.jsx'
+import CreateProduct,{createProductAction} from './pages/CreateProduct.jsx'
 const router = createBrowserRouter([
   {
     path: "/",
@@ -31,12 +32,19 @@ const router = createBrowserRouter([
       },
       {
         path:"products",
-        element:<Products/>
+        element:<Products/>,
+        loader:dataLoader // Link dataLoader to the path declaration
       },
       {
         path:"products/:productId",
         element:<ProductDetail/>,
-        errorElement:<ProductErrorPage/>
+        errorElement:<ProductErrorPage/>,
+        loader:detailLoader
+      },
+      {
+        path:"create-product",
+        element:<CreateProduct/>,
+        action:createProductAction
       }
     ]
   }
